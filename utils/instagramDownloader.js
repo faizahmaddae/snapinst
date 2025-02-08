@@ -1,4 +1,4 @@
-// src/utils/instagramDownloader.js
+// utils/instagramDownloader.js
 
 // axios
 const axios = require('axios');
