@@ -47,6 +47,20 @@ app.get('/api',async (req, res) => {
 
     var data = [];
     const $ = cheerio.load(result);
+    // const items = $('div.row').find('div.download-item');
+    // for (let i = 0; i < items.length; i++) {
+    //     const item = items[i];
+    //     const itemUrl = $(item).find('a').attr('href'); 
+    //     const a_label = $(item).find('a').text().trim();
+    //     const isVideo = a_label == 'Download Photo' ? false : true;        
+    //     data.push({
+    //       url: itemUrl.replaceAll('&dl=1', ""),
+    //       is_video: isVideo,
+    //     });
+    //   }
+
+    console.log(result);
+
     const items = $('div.row').find('div.download-item');
 
     for (let i = 0; i < items.length; i++) {

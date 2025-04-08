@@ -126,16 +126,28 @@ async function fetchSnapinstData({instagramURL, token, cfTurnstileResponse = '',
         formData.append("cf-turnstile-response", cfTurnstileResponse);
         formData.append("token", token);
 
-        const response = await fetch("https://snapinst.app/action2.php", {
+        // const response = await fetch("https://snapinst.app/action2.php", {
+        //     method: "POST",
+        //     headers: {
+        //         "Accept": "*/*",
+        //         "Referer": "https://snapinst.app/",
+        //         "Referrer-Policy": "strict-origin-when-cross-origin",
+        //         "User-Agent": userAgent || getRandomUserAgent(),
+        //     },
+        //     body: formData
+        // });
+
+        const response = await fetch("https://snapins.ai/action2.php", {
             method: "POST",
             headers: {
                 "Accept": "*/*",
-                "Referer": "https://snapinst.app/",
+                "Referer": "https://snapins.ai/",
                 "Referrer-Policy": "strict-origin-when-cross-origin",
                 "User-Agent": userAgent || getRandomUserAgent(),
             },
             body: formData
         });
+
         // console.log(`userAgent: ${userAgent}`);
         const result = await response.text();
         // console.log(result);
@@ -237,7 +249,7 @@ function getRandomUserAgent() {
 }
 
 
-async function getCsrfTokenAndCookies({userAgent = null, host = 'snapinst.app',  selector = 'input[name="token"]', attribute = 'value'} = {}) {
+async function getCsrfTokenAndCookies({userAgent = null, host = 'snapins.ai',  selector = 'input[name="token"]', attribute = 'value'} = {}) {
     const headers = {
         'Host': host,
         'User-Agent': userAgent || getRandomUserAgent(),
